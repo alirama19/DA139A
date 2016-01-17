@@ -100,7 +100,7 @@ SUBDIRS :=  \
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../src/ADCCustom.c \
+../src/ADCSet.c \
 ../src/ASF/common/utils/stdio/read.c \
 ../src/ASF/sam/drivers/adc/adc.c \
 ../src/ASF/sam/drivers/usart/usart.c \
@@ -108,7 +108,6 @@ C_SRCS +=  \
 ../src/allVariables.c \
 ../src/PIDSet.c \
 ../src/PWMSet.c \
-../src/testFunctions.c \
 ../src/UARTSet.c \
 ../src/ASF/thirdparty/freertos/freertos-7.3.0/source/list.c \
 ../src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam/port.c \
@@ -144,7 +143,7 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-src/ADCCustom.o \
+src/ADCSet.o \
 src/ASF/common/utils/stdio/read.o \
 src/ASF/sam/drivers/adc/adc.o \
 src/ASF/sam/drivers/usart/usart.o \
@@ -152,7 +151,6 @@ src/ASF/thirdparty/freertos/freertos-7.3.0/source/FreeRTOS_CLI.o \
 src/allVariables.o \
 src/PIDSet.o \
 src/PWMSet.o \
-src/testFunctions.o \
 src/UARTSet.o \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/list.o \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam/port.o \
@@ -181,7 +179,7 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.o \
 src/main.o
 
 OBJS_AS_ARGS +=  \
-src/ADCCustom.o \
+src/ADCSet.o \
 src/ASF/common/utils/stdio/read.o \
 src/ASF/sam/drivers/adc/adc.o \
 src/ASF/sam/drivers/usart/usart.o \
@@ -189,7 +187,6 @@ src/ASF/thirdparty/freertos/freertos-7.3.0/source/FreeRTOS_CLI.o \
 src/allVariables.o \
 src/PIDSet.o \
 src/PWMSet.o \
-src/testFunctions.o \
 src/UARTSet.o \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/list.o \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam/port.o \
@@ -218,7 +215,7 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.o \
 src/main.o
 
 C_DEPS +=  \
-src/ADCCustom.d \
+src/ADCSet.d \
 src/ASF/common/utils/stdio/read.d \
 src/ASF/sam/drivers/adc/adc.d \
 src/ASF/sam/drivers/usart/usart.d \
@@ -226,7 +223,6 @@ src/ASF/thirdparty/freertos/freertos-7.3.0/source/FreeRTOS_CLI.d \
 src/allVariables.d \
 src/PIDSet.d \
 src/PWMSet.d \
-src/testFunctions.d \
 src/UARTSet.d \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/list.d \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam/port.d \
@@ -255,7 +251,7 @@ src/ASF/sam/utils/syscalls/gcc/syscalls.d \
 src/main.d
 
 C_DEPS_AS_ARGS +=  \
-src/ADCCustom.d \
+src/ADCSet.d \
 src/ASF/common/utils/stdio/read.d \
 src/ASF/sam/drivers/adc/adc.d \
 src/ASF/sam/drivers/usart/usart.d \
@@ -263,7 +259,6 @@ src/ASF/thirdparty/freertos/freertos-7.3.0/source/FreeRTOS_CLI.d \
 src/allVariables.d \
 src/PIDSet.d \
 src/PWMSet.d \
-src/testFunctions.d \
 src/UARTSet.d \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/list.d \
 src/ASF/thirdparty/freertos/freertos-7.3.0/source/portable/gcc/sam/port.d \
@@ -306,8 +301,6 @@ LINKER_SCRIPT_DEP+=  \
 
 
 # AVR32/GNU C Compiler
-
-
 
 
 

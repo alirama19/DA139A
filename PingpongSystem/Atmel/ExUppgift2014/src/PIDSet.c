@@ -12,7 +12,6 @@
 #include "ADCSet.h"
 #include "allVariables.h"
 #include "UARTSet.h"
-#include "testFunctions.h"
 
 void PIDTask (void *pvParameters)
 {

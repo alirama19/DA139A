@@ -149,7 +149,7 @@ src/UARTSet.d src/UARTSet.o: ../src/UARTSet.c ../src/asf.h \
  ../src/ASF/sam/drivers/uart/uart.h ../src/ASF/sam/drivers/usart/usart.h \
  ../src/config/conf_uart_serial.h ../src/ASF/sam/drivers/tc/tc.h \
  ../src/ASF/sam/drivers/pio/pio_handler.h ../src/UARTSet.h \
- ../src/allVariables.h ../src/ADCCustom.h ../src/testFunctions.h
+ ../src/allVariables.h ../src/ADCSet.h
 
 ../src/asf.h:
 
@@ -469,6 +469,4 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\arm\ gcc\native\4.8.1443\arm-gnu
 
 ../src/allVariables.h:
 
-../src/ADCCustom.h:
-
-../src/testFunctions.h:
+../src/ADCSet.h:

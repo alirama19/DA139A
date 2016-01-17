@@ -2,7 +2,7 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
-src\ADCCustom.c
+src\ADCSet.c
 
 src\ASF\common\utils\stdio\read.c
 
@@ -17,8 +17,6 @@ src\allVariables.c
 src\PIDSet.c
 
 src\PWMSet.c
-
-src\testFunctions.c
 
 src\UARTSet.c
 

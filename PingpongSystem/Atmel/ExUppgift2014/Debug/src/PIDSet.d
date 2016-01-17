@@ -150,8 +150,7 @@ src/PIDSet.d src/PIDSet.o: ../src/PIDSet.c ../src/asf.h \
  ../src/config/conf_uart_serial.h ../src/ASF/sam/drivers/tc/tc.h \
  ../src/ASF/sam/drivers/pio/pio_handler.h ../src/PIDSet.h \
  c:\program\ files\ (x86)\atmel\atmel\ toolchain\arm\ gcc\native\4.8.1443\arm-gnu-toolchain\arm-none-eabi\include\inttypes.h \
- ../src/PWMSet.h ../src/ADCCustom.h ../src/allVariables.h \
- ../src/UARTSet.h ../src/testFunctions.h
+ ../src/PWMSet.h ../src/ADCSet.h ../src/allVariables.h ../src/UARTSet.h
 
 ../src/asf.h:
 
@@ -473,10 +472,8 @@ c:\program\ files\ (x86)\atmel\atmel\ toolchain\arm\ gcc\native\4.8.1443\arm-gnu
 
 ../src/PWMSet.h:
 
-../src/ADCCustom.h:
+../src/ADCSet.h:
 
 ../src/allVariables.h:
 
 ../src/UARTSet.h:
-
-../src/testFunctions.h:

@@ -11,7 +11,7 @@
 #include "conf_uart_serial.h"
 #include "allVariables.h"
 #include "ADCSet.h"
-#include "testFunctions.h"
+
 
 void ComTask (void *pvParameters)
 {

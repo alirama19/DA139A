@@ -27,13 +27,13 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING
  11 .debug_ranges 00000ec8  00000000  00000000  0003250c  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_macro  0001afc4  00000000  00000000  000333d4  2**0
+ 12 .debug_macro  0001af7e  00000000  00000000  000333d4  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_line   00014ab3  00000000  00000000  0004e398  2**0
+ 13 .debug_line   00014a69  00000000  00000000  0004e352  2**0
                   CONTENTS, READONLY, DEBUGGING
- 14 .debug_str    0006b063  00000000  00000000  00062e4b  2**0
+ 14 .debug_str    0006af66  00000000  00000000  00062dbb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 15 .debug_frame  00002d94  00000000  00000000  000cdeb0  2**2
+ 15 .debug_frame  00002d94  00000000  00000000  000cdd24  2**2
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -345,13 +345,13 @@ int ADCReadSensor()
    802d4:	2001      	movs	r0, #1
    802d6:	4770      	bx	lr
 
-000802d8 <PIDRegulate>:
+000802d8 <PIDReglering>:
 	}
 }
 
 
-/* PID Function */
-void PIDRegulate(void){
+/* PID Funktion */
+void PIDReglering(void){
    802d8:	e92d 47f0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, lr}
    802dc:	2431      	movs	r4, #49	; 0x31
 
@@ -360,89 +360,89 @@ void PIDRegulate(void){
    802de:	2500      	movs	r5, #0
 	for(int i = 0; i<FILTER_AVERAGE_SAMPLES-1; i++){
 		valuesTotal += ADCReadSensor();
-   802e0:	4e49      	ldr	r6, [pc, #292]	; (80408 <PIDRegulate+0x130>)
+   802e0:	4e49      	ldr	r6, [pc, #292]	; (80408 <PIDReglering+0x130>)
    802e2:	47b0      	blx	r6
    802e4:	4405      	add	r5, r0
-/* PID Function */
-void PIDRegulate(void){
+/* PID Funktion */
+void PIDReglering(void){
 
 	// moving average filter of sampled sensor values
 	uint32_t valuesTotal = 0;
 	for(int i = 0; i<FILTER_AVERAGE_SAMPLES-1; i++){
    802e6:	3c01      	subs	r4, #1
-   802e8:	d1fb      	bne.n	802e2 <PIDRegulate+0xa>
+   802e8:	d1fb      	bne.n	802e2 <PIDReglering+0xa>
 		valuesTotal += ADCReadSensor();
 	}
 	distanceSensor = valuesTotal / FILTER_AVERAGE_SAMPLES;
-   802ea:	4b48      	ldr	r3, [pc, #288]	; (8040c <PIDRegulate+0x134>)
+   802ea:	4b48      	ldr	r3, [pc, #288]	; (8040c <PIDReglering+0x134>)
    802ec:	fba3 2505 	umull	r2, r5, r3, r5
    802f0:	092d      	lsrs	r5, r5, #4
-   802f2:	4b47      	ldr	r3, [pc, #284]	; (80410 <PIDRegulate+0x138>)
+   802f2:	4b47      	ldr	r3, [pc, #284]	; (80410 <PIDReglering+0x138>)
    802f4:	601d      	str	r5, [r3, #0]
 
 	// P-regulation
 	error = (setPoint - distanceSensor);
-   802f6:	4b47      	ldr	r3, [pc, #284]	; (80414 <PIDRegulate+0x13c>)
+   802f6:	4b47      	ldr	r3, [pc, #284]	; (80414 <PIDReglering+0x13c>)
    802f8:	681b      	ldr	r3, [r3, #0]
    802fa:	ebc5 0a03 	rsb	sl, r5, r3
-   802fe:	4b46      	ldr	r3, [pc, #280]	; (80418 <PIDRegulate+0x140>)
+   802fe:	4b46      	ldr	r3, [pc, #280]	; (80418 <PIDReglering+0x140>)
    80300:	f8c3 a000 	str.w	sl, [r3]
 
 	// I-regulation
 	sumOfError = (double)sumOfError + (double)((double)error*(double)DT_SECONDS);
-   80304:	4e45      	ldr	r6, [pc, #276]	; (8041c <PIDRegulate+0x144>)
+   80304:	4e45      	ldr	r6, [pc, #276]	; (8041c <PIDReglering+0x144>)
    80306:	4650      	mov	r0, sl
    80308:	47b0      	blx	r6
    8030a:	4604      	mov	r4, r0
    8030c:	460d      	mov	r5, r1
-   8030e:	f8df 8134 	ldr.w	r8, [pc, #308]	; 80444 <PIDRegulate+0x16c>
+   8030e:	f8df 8134 	ldr.w	r8, [pc, #308]	; 80444 <PIDReglering+0x16c>
    80312:	f8d8 0000 	ldr.w	r0, [r8]
    80316:	47b0      	blx	r6
    80318:	4606      	mov	r6, r0
    8031a:	460f      	mov	r7, r1
    8031c:	4620      	mov	r0, r4
    8031e:	4629      	mov	r1, r5
-   80320:	a337      	add	r3, pc, #220	; (adr r3, 80400 <PIDRegulate+0x128>)
+   80320:	a337      	add	r3, pc, #220	; (adr r3, 80400 <PIDReglering+0x128>)
    80322:	e9d3 2300 	ldrd	r2, r3, [r3]
-   80326:	f8df c104 	ldr.w	ip, [pc, #260]	; 8042c <PIDRegulate+0x154>
+   80326:	f8df c104 	ldr.w	ip, [pc, #260]	; 8042c <PIDReglering+0x154>
    8032a:	47e0      	blx	ip
    8032c:	4602      	mov	r2, r0
    8032e:	460b      	mov	r3, r1
    80330:	4630      	mov	r0, r6
    80332:	4639      	mov	r1, r7
-   80334:	4e3a      	ldr	r6, [pc, #232]	; (80420 <PIDRegulate+0x148>)
+   80334:	4e3a      	ldr	r6, [pc, #232]	; (80420 <PIDReglering+0x148>)
    80336:	47b0      	blx	r6
-   80338:	4b3a      	ldr	r3, [pc, #232]	; (80424 <PIDRegulate+0x14c>)
+   80338:	4b3a      	ldr	r3, [pc, #232]	; (80424 <PIDReglering+0x14c>)
    8033a:	4798      	blx	r3
    8033c:	4681      	mov	r9, r0
    8033e:	f8c8 0000 	str.w	r0, [r8]
 	double I_Output;
 	if(kI == 0)
-   80342:	4b39      	ldr	r3, [pc, #228]	; (80428 <PIDRegulate+0x150>)
+   80342:	4b39      	ldr	r3, [pc, #228]	; (80428 <PIDReglering+0x150>)
    80344:	e9d3 6700 	ldrd	r6, r7, [r3]
    80348:	4630      	mov	r0, r6
    8034a:	4639      	mov	r1, r7
    8034c:	2200      	movs	r2, #0
    8034e:	2300      	movs	r3, #0
-   80350:	f8df c0f4 	ldr.w	ip, [pc, #244]	; 80448 <PIDRegulate+0x170>
+   80350:	f8df c0f4 	ldr.w	ip, [pc, #244]	; 80448 <PIDReglering+0x170>
    80354:	47e0      	blx	ip
-   80356:	b958      	cbnz	r0, 80370 <PIDRegulate+0x98>
+   80356:	b958      	cbnz	r0, 80370 <PIDReglering+0x98>
 	{
 		I_Output = 0;
 		} else {
 		I_Output = (double)kI*sumOfError;
    80358:	4648      	mov	r0, r9
-   8035a:	4b30      	ldr	r3, [pc, #192]	; (8041c <PIDRegulate+0x144>)
+   8035a:	4b30      	ldr	r3, [pc, #192]	; (8041c <PIDReglering+0x144>)
    8035c:	4798      	blx	r3
    8035e:	4602      	mov	r2, r0
    80360:	460b      	mov	r3, r1
    80362:	4630      	mov	r0, r6
    80364:	4639      	mov	r1, r7
-   80366:	4e31      	ldr	r6, [pc, #196]	; (8042c <PIDRegulate+0x154>)
+   80366:	4e31      	ldr	r6, [pc, #196]	; (8042c <PIDReglering+0x154>)
    80368:	47b0      	blx	r6
    8036a:	4606      	mov	r6, r0
    8036c:	460f      	mov	r7, r1
-   8036e:	e001      	b.n	80374 <PIDRegulate+0x9c>
+   8036e:	e001      	b.n	80374 <PIDReglering+0x9c>
 	// I-regulation
 	sumOfError = (double)sumOfError + (double)((double)error*(double)DT_SECONDS);
 	double I_Output;
@@ -458,27 +458,27 @@ void PIDRegulate(void){
 
 	if(error == 1)
    80374:	f1ba 0f01 	cmp.w	sl, #1
-   80378:	d014      	beq.n	803a4 <PIDRegulate+0xcc>
+   80378:	d014      	beq.n	803a4 <PIDReglering+0xcc>
 	{
 		D_Output = 0;
 		} else {
 		D_Output = (double)((double)((double)kD*(double)(error - lastError))/(double)DT_SECONDS);
-   8037a:	4b2d      	ldr	r3, [pc, #180]	; (80430 <PIDRegulate+0x158>)
+   8037a:	4b2d      	ldr	r3, [pc, #180]	; (80430 <PIDReglering+0x158>)
    8037c:	6818      	ldr	r0, [r3, #0]
    8037e:	ebc0 000a 	rsb	r0, r0, sl
-   80382:	4b26      	ldr	r3, [pc, #152]	; (8041c <PIDRegulate+0x144>)
+   80382:	4b26      	ldr	r3, [pc, #152]	; (8041c <PIDReglering+0x144>)
    80384:	4798      	blx	r3
-   80386:	4b2b      	ldr	r3, [pc, #172]	; (80434 <PIDRegulate+0x15c>)
+   80386:	4b2b      	ldr	r3, [pc, #172]	; (80434 <PIDReglering+0x15c>)
    80388:	e9d3 2300 	ldrd	r2, r3, [r3]
-   8038c:	f8df c09c 	ldr.w	ip, [pc, #156]	; 8042c <PIDRegulate+0x154>
+   8038c:	f8df c09c 	ldr.w	ip, [pc, #156]	; 8042c <PIDReglering+0x154>
    80390:	47e0      	blx	ip
-   80392:	a31b      	add	r3, pc, #108	; (adr r3, 80400 <PIDRegulate+0x128>)
+   80392:	a31b      	add	r3, pc, #108	; (adr r3, 80400 <PIDReglering+0x128>)
    80394:	e9d3 2300 	ldrd	r2, r3, [r3]
-   80398:	f8df c0b0 	ldr.w	ip, [pc, #176]	; 8044c <PIDRegulate+0x174>
+   80398:	f8df c0b0 	ldr.w	ip, [pc, #176]	; 8044c <PIDReglering+0x174>
    8039c:	47e0      	blx	ip
    8039e:	4680      	mov	r8, r0
    803a0:	4689      	mov	r9, r1
-   803a2:	e003      	b.n	803ac <PIDRegulate+0xd4>
+   803a2:	e003      	b.n	803ac <PIDReglering+0xd4>
 	// D-regulation
 	double D_Output;
 
@@ -491,50 +491,50 @@ void PIDRegulate(void){
 		D_Output = (double)((double)((double)kD*(double)(error - lastError))/(double)DT_SECONDS);
 	}
 	lastError = error;
-   803ac:	4b20      	ldr	r3, [pc, #128]	; (80430 <PIDRegulate+0x158>)
+   803ac:	4b20      	ldr	r3, [pc, #128]	; (80430 <PIDReglering+0x158>)
    803ae:	f8c3 a000 	str.w	sl, [r3]
 
 	// Add up P, I and D outputs
 	output_value = (kP*error)+I_Output+D_Output;
    803b2:	4620      	mov	r0, r4
    803b4:	4629      	mov	r1, r5
-   803b6:	4b20      	ldr	r3, [pc, #128]	; (80438 <PIDRegulate+0x160>)
+   803b6:	4b20      	ldr	r3, [pc, #128]	; (80438 <PIDReglering+0x160>)
    803b8:	e9d3 2300 	ldrd	r2, r3, [r3]
-   803bc:	4c1b      	ldr	r4, [pc, #108]	; (8042c <PIDRegulate+0x154>)
+   803bc:	4c1b      	ldr	r4, [pc, #108]	; (8042c <PIDReglering+0x154>)
    803be:	47a0      	blx	r4
-   803c0:	4c17      	ldr	r4, [pc, #92]	; (80420 <PIDRegulate+0x148>)
+   803c0:	4c17      	ldr	r4, [pc, #92]	; (80420 <PIDReglering+0x148>)
    803c2:	4632      	mov	r2, r6
    803c4:	463b      	mov	r3, r7
    803c6:	47a0      	blx	r4
    803c8:	4642      	mov	r2, r8
    803ca:	464b      	mov	r3, r9
    803cc:	47a0      	blx	r4
-   803ce:	4b15      	ldr	r3, [pc, #84]	; (80424 <PIDRegulate+0x14c>)
+   803ce:	4b15      	ldr	r3, [pc, #84]	; (80424 <PIDReglering+0x14c>)
    803d0:	4798      	blx	r3
 	
 	// Protection vs overflow/underflow
 	if (output_value < PID_PWM_MIN)
    803d2:	2800      	cmp	r0, #0
-   803d4:	da03      	bge.n	803de <PIDRegulate+0x106>
+   803d4:	da03      	bge.n	803de <PIDReglering+0x106>
 	{
 		output_value = PID_PWM_MIN;
    803d6:	2200      	movs	r2, #0
-   803d8:	4b18      	ldr	r3, [pc, #96]	; (8043c <PIDRegulate+0x164>)
+   803d8:	4b18      	ldr	r3, [pc, #96]	; (8043c <PIDReglering+0x164>)
    803da:	601a      	str	r2, [r3, #0]
-   803dc:	e009      	b.n	803f2 <PIDRegulate+0x11a>
+   803dc:	e009      	b.n	803f2 <PIDReglering+0x11a>
 	}
 	else if (output_value > PID_PWM_MAX)
    803de:	f5b0 7f7a 	cmp.w	r0, #1000	; 0x3e8
-   803e2:	da02      	bge.n	803ea <PIDRegulate+0x112>
+   803e2:	da02      	bge.n	803ea <PIDReglering+0x112>
 		D_Output = (double)((double)((double)kD*(double)(error - lastError))/(double)DT_SECONDS);
 	}
 	lastError = error;
 
 	// Add up P, I and D outputs
 	output_value = (kP*error)+I_Output+D_Output;
-   803e4:	4b15      	ldr	r3, [pc, #84]	; (8043c <PIDRegulate+0x164>)
+   803e4:	4b15      	ldr	r3, [pc, #84]	; (8043c <PIDReglering+0x164>)
    803e6:	6018      	str	r0, [r3, #0]
-   803e8:	e003      	b.n	803f2 <PIDRegulate+0x11a>
+   803e8:	e003      	b.n	803f2 <PIDReglering+0x11a>
 	{
 		output_value = PID_PWM_MIN;
 	}
@@ -542,15 +542,15 @@ void PIDRegulate(void){
 	{
 		output_value = PID_PWM_MAX;
    803ea:	f240 32e7 	movw	r2, #999	; 0x3e7
-   803ee:	4b13      	ldr	r3, [pc, #76]	; (8043c <PIDRegulate+0x164>)
+   803ee:	4b13      	ldr	r3, [pc, #76]	; (8043c <PIDReglering+0x164>)
    803f0:	601a      	str	r2, [r3, #0]
 	}
 
 	// Write PID value to PWM
 	PWMDutyCycle(output_value);
-   803f2:	4b12      	ldr	r3, [pc, #72]	; (8043c <PIDRegulate+0x164>)
+   803f2:	4b12      	ldr	r3, [pc, #72]	; (8043c <PIDReglering+0x164>)
    803f4:	6818      	ldr	r0, [r3, #0]
-   803f6:	4b12      	ldr	r3, [pc, #72]	; (80440 <PIDRegulate+0x168>)
+   803f6:	4b12      	ldr	r3, [pc, #72]	; (80440 <PIDReglering+0x168>)
    803f8:	4798      	blx	r3
    803fa:	e8bd 87f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, pc}
    803fe:	bf00      	nop
@@ -575,25 +575,24 @@ void PIDRegulate(void){
    80448:	0008335d 	.word	0x0008335d
    8044c:	000830e1 	.word	0x000830e1
 
-00080450 <PIDRegulationTask>:
+00080450 <PIDTask>:
+#include "ADCSet.h"
 #include "allVariables.h"
 #include "UARTSet.h"
-#include "testFunctions.h"
 
-void PIDRegulationTask (void *pvParameters)
+void PIDTask (void *pvParameters)
 {
    80450:	b570      	push	{r4, r5, r6, lr}
    80452:	b082      	sub	sp, #8
-	//	printf("PID Task initialized and PAUSED\n\r");
 
 	// Pause here untill Matlab sent values
 	xSemaphoreTake(sem, portMAX_DELAY);
-   80454:	4d0e      	ldr	r5, [pc, #56]	; (80490 <PIDRegulationTask+0x40>)
+   80454:	4d0e      	ldr	r5, [pc, #56]	; (80490 <PIDTask+0x40>)
    80456:	6828      	ldr	r0, [r5, #0]
    80458:	2100      	movs	r1, #0
    8045a:	f64f 72ff 	movw	r2, #65535	; 0xffff
    8045e:	460b      	mov	r3, r1
-   80460:	4c0c      	ldr	r4, [pc, #48]	; (80494 <PIDRegulationTask+0x44>)
+   80460:	4c0c      	ldr	r4, [pc, #48]	; (80494 <PIDTask+0x44>)
    80462:	47a0      	blx	r4
 	xSemaphoreTake(sem, portMAX_DELAY);
    80464:	6828      	ldr	r0, [r5, #0]
@@ -603,7 +602,7 @@ void PIDRegulationTask (void *pvParameters)
    8046e:	47a0      	blx	r4
 
 	portTickType xLastWakeTime = xTaskGetTickCount();
-   80470:	4b09      	ldr	r3, [pc, #36]	; (80498 <PIDRegulationTask+0x48>)
+   80470:	4b09      	ldr	r3, [pc, #36]	; (80498 <PIDTask+0x48>)
    80472:	4798      	blx	r3
    80474:	ac02      	add	r4, sp, #8
    80476:	f824 0d02 	strh.w	r0, [r4, #-2]!
@@ -611,14 +610,14 @@ void PIDRegulationTask (void *pvParameters)
 
 	vTaskDelay(1000);
    8047a:	f44f 707a 	mov.w	r0, #1000	; 0x3e8
-   8047e:	4b07      	ldr	r3, [pc, #28]	; (8049c <PIDRegulationTask+0x4c>)
+   8047e:	4b07      	ldr	r3, [pc, #28]	; (8049c <PIDTask+0x4c>)
    80480:	4798      	blx	r3
 
 	for(;;){
 		vTaskDelayUntil(&xLastWakeTime,xFrequency);	// Samplingstid
-   80482:	4e07      	ldr	r6, [pc, #28]	; (804a0 <PIDRegulationTask+0x50>)
-		PIDRegulate(); // Run PID
-   80484:	4d07      	ldr	r5, [pc, #28]	; (804a4 <PIDRegulationTask+0x54>)
+   80482:	4e07      	ldr	r6, [pc, #28]	; (804a0 <PIDTask+0x50>)
+		PIDReglering(); // Run PID
+   80484:	4d07      	ldr	r5, [pc, #28]	; (804a4 <PIDTask+0x54>)
 	const portTickType xFrequency =  DTIME_MS; // Run between 50-100ms
 
 	vTaskDelay(1000);
@@ -628,9 +627,9 @@ void PIDRegulationTask (void *pvParameters)
    80486:	4620      	mov	r0, r4
    80488:	2132      	movs	r1, #50	; 0x32
    8048a:	47b0      	blx	r6
-		PIDRegulate(); // Run PID
+		PIDReglering(); // Run PID
    8048c:	47a8      	blx	r5
-   8048e:	e7fa      	b.n	80486 <PIDRegulationTask+0x36>
+   8048e:	e7fa      	b.n	80486 <PIDTask+0x36>
    80490:	200709c4 	.word	0x200709c4
    80494:	00081131 	.word	0x00081131
    80498:	000815c1 	.word	0x000815c1
@@ -1618,7 +1617,7 @@ void getPIDValues()
 
 00080978 <sendValues>:
 
-/* Function that sends values to Matlab */
+/* Sends values to Matlab */
 void sendValues(){
    80978:	b538      	push	{r3, r4, r5, lr}
 	if(!isMatlab){
@@ -1662,46 +1661,46 @@ void sendValues(){
    809c4:	200709e8 	.word	0x200709e8
    809c8:	200709f8 	.word	0x200709f8
 
-000809cc <SerialComTask>:
+000809cc <ComTask>:
 #include "allVariables.h"
-#include "ADCCustom.h"
-#include "testFunctions.h"
+#include "ADCSet.h"
 
-void SerialComTask (void *pvParameters)
+
+void ComTask (void *pvParameters)
 {
    809cc:	b5f0      	push	{r4, r5, r6, r7, lr}
    809ce:	b083      	sub	sp, #12
-	getPIDValues(); // Get Values from Matlab
-   809d0:	4b10      	ldr	r3, [pc, #64]	; (80a14 <SerialComTask+0x48>)
+	getPIDValues(); // Get Matlab Values 
+   809d0:	4b10      	ldr	r3, [pc, #64]	; (80a14 <ComTask+0x48>)
    809d2:	4798      	blx	r3
 
-	xSemaphoreGive(sem); // Tell PID Task to start
-   809d4:	4b10      	ldr	r3, [pc, #64]	; (80a18 <SerialComTask+0x4c>)
+	xSemaphoreGive(sem); //  Start PIDTask 
+   809d4:	4b10      	ldr	r3, [pc, #64]	; (80a18 <ComTask+0x4c>)
    809d6:	6818      	ldr	r0, [r3, #0]
    809d8:	2100      	movs	r1, #0
    809da:	460a      	mov	r2, r1
    809dc:	460b      	mov	r3, r1
-   809de:	4c0f      	ldr	r4, [pc, #60]	; (80a1c <SerialComTask+0x50>)
+   809de:	4c0f      	ldr	r4, [pc, #60]	; (80a1c <ComTask+0x50>)
    809e0:	47a0      	blx	r4
 
 	for(;;){
 
 		// Wait here for Matlab to send signal its ready to receive values
 		while (!uart_is_rx_ready (CONF_UART)){
-   809e2:	4c0f      	ldr	r4, [pc, #60]	; (80a20 <SerialComTask+0x54>)
-   809e4:	4d0f      	ldr	r5, [pc, #60]	; (80a24 <SerialComTask+0x58>)
+   809e2:	4c0f      	ldr	r4, [pc, #60]	; (80a20 <ComTask+0x54>)
+   809e4:	4d0f      	ldr	r5, [pc, #60]	; (80a24 <ComTask+0x58>)
 		};
 
 		// Clear RX buffer
 		while (uart_is_rx_ready (CONF_UART)){
 			uint8_t clearBuffer = 0;
 			uart_read(CONF_UART, &clearBuffer);
-   809e6:	4e10      	ldr	r6, [pc, #64]	; (80a28 <SerialComTask+0x5c>)
+   809e6:	4e10      	ldr	r6, [pc, #64]	; (80a28 <ComTask+0x5c>)
 		};
 
 		sendValues(); // Send values to MATLAB for graphing
-   809e8:	4f10      	ldr	r7, [pc, #64]	; (80a2c <SerialComTask+0x60>)
-   809ea:	e002      	b.n	809f2 <SerialComTask+0x26>
+   809e8:	4f10      	ldr	r7, [pc, #64]	; (80a2c <ComTask+0x60>)
+   809ea:	e002      	b.n	809f2 <ComTask+0x26>
 
 	for(;;){
 
@@ -1709,9 +1708,9 @@ void SerialComTask (void *pvParameters)
 		while (!uart_is_rx_ready (CONF_UART)){
 			vTaskDelay(1);
    809ec:	2001      	movs	r0, #1
-   809ee:	4b10      	ldr	r3, [pc, #64]	; (80a30 <SerialComTask+0x64>)
+   809ee:	4b10      	ldr	r3, [pc, #64]	; (80a30 <ComTask+0x64>)
    809f0:	4798      	blx	r3
-	xSemaphoreGive(sem); // Tell PID Task to start
+	xSemaphoreGive(sem); //  Start PIDTask 
 
 	for(;;){
 
@@ -1720,8 +1719,8 @@ void SerialComTask (void *pvParameters)
    809f2:	4620      	mov	r0, r4
    809f4:	47a8      	blx	r5
    809f6:	2800      	cmp	r0, #0
-   809f8:	d0f8      	beq.n	809ec <SerialComTask+0x20>
-   809fa:	e005      	b.n	80a08 <SerialComTask+0x3c>
+   809f8:	d0f8      	beq.n	809ec <ComTask+0x20>
+   809fa:	e005      	b.n	80a08 <ComTask+0x3c>
 			vTaskDelay(1);
 		};
 
@@ -1743,7 +1742,7 @@ void SerialComTask (void *pvParameters)
    80a08:	4620      	mov	r0, r4
    80a0a:	47a8      	blx	r5
    80a0c:	2800      	cmp	r0, #0
-   80a0e:	d1f5      	bne.n	809fc <SerialComTask+0x30>
+   80a0e:	d1f5      	bne.n	809fc <ComTask+0x30>
 			uint8_t clearBuffer = 0;
 			uart_read(CONF_UART, &clearBuffer);
 		};
@@ -1751,7 +1750,7 @@ void SerialComTask (void *pvParameters)
 		sendValues(); // Send values to MATLAB for graphing
    80a10:	47b8      	blx	r7
 	}
-   80a12:	e7ee      	b.n	809f2 <SerialComTask+0x26>
+   80a12:	e7ee      	b.n	809f2 <ComTask+0x26>
    80a14:	00080745 	.word	0x00080745
    80a18:	200709c4 	.word	0x200709c4
    80a1c:	00080f7d 	.word	0x00080f7d
@@ -5354,7 +5353,7 @@ void SerialComTask (void *pvParameters)
    82a32:	4770      	bx	lr
 
 00082a34 <main>:
-#include "testFunctions.h"
+#include "PWMSet.h"
 #include "UARTSet.h"
 
 
@@ -5394,9 +5393,6 @@ int main (void)
 	ADCSetup();
    82a5e:	4b21      	ldr	r3, [pc, #132]	; (82ae4 <main+0xb0>)
    82a60:	4798      	blx	r3
-	//testFans(); // Loops fan speed
-	//testFilter(); // Loops FIR-filtered sensor values
-	//testADC(); // Loops sensor values
 	
 	//initialize binary semaphore
 	vSemaphoreCreateBinary(sem);
@@ -5413,12 +5409,12 @@ int main (void)
    82a76:	460b      	mov	r3, r1
    82a78:	4c1d      	ldr	r4, [pc, #116]	; (82af0 <main+0xbc>)
    82a7a:	47a0      	blx	r4
-		// The semaphore can now be used.
+	{
+
 	}
 	
 	/* Creating the PID regulation task */
-	//	printf("Created PIDRegulationTask\n\r");
-	if (xTaskCreate(PIDRegulationTask, (const signed char * const) "PIDRegulation",
+	if (xTaskCreate(PIDTask, (const signed char * const) "PIDRegulation",
    82a7c:	2302      	movs	r3, #2
    82a7e:	9300      	str	r3, [sp, #0]
    82a80:	2300      	movs	r3, #0
@@ -5441,8 +5437,7 @@ int main (void)
 	}
 	
 	/* Creating the serial communication task */
-	//	printf("Created SerialComTask\n\r");
-	if (xTaskCreate(SerialComTask, (const signed char * const) "SerialComTask",
+	if (xTaskCreate(ComTask, (const signed char * const) "SerialComTask",
    82a9e:	2301      	movs	r3, #1
    82aa0:	9300      	str	r3, [sp, #0]
    82aa2:	2300      	movs	r3, #0
