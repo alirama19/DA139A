@@ -42,10 +42,10 @@ void PIDReglering(void){
 	}
 	distanceSensor = valuesTotal / FILTER_AVERAGE_SAMPLES;
 
-	// P-regulation
+	// Propertionell-del
 	error = (setPoint - distanceSensor);
 
-	// I-regulation
+	// Integrerande-del
 	sumOfError = (double)sumOfError + (double)((double)error*(double)DT_SECONDS);
 	double I_Output;
 	if(kI == 0)
@@ -55,7 +55,7 @@ void PIDReglering(void){
 		I_Output = (double)kI*sumOfError;
 	}
 
-	// D-regulation
+	// Deriverande-del
 	double D_Output;
 
 	if(error == 1)
