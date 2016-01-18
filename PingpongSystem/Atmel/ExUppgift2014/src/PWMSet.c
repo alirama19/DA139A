@@ -13,7 +13,7 @@ void PWMSetup()
 	pmc_enable_periph_clk(ID_PWM);
 	pwm_channel_disable(PWM, PWM_CHANNEL_6);
 	pwm_clock_t pwm_clock ={
-		.ul_clka = 1000*999,
+		.ul_clka = 10*9,
 		.ul_clkb = 0,
 		.ul_mck = sysclk_get_cpu_hz()
 	};
