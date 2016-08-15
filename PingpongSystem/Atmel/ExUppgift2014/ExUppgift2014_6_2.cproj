@@ -566,6 +566,9 @@
     <Compile Include="src\allVariables.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="src\ASF\thirdparty\status_codes.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="src\ReglStyr.c">
       <SubType>compile</SubType>
     </Compile>
@@ -1055,9 +1058,6 @@
     <Compile Include="src\ASF\common\utils\interrupt\interrupt_sam_nvic.c">
       <SubType>compile</SubType>
     </Compile>
-    <None Include="src\ASF\sam\utils\status_codes.h">
-      <SubType>compile</SubType>
-    </None>
     <None Include="src\ASF\sam\utils\header_files\io.h">
       <SubType>compile</SubType>
     </None>

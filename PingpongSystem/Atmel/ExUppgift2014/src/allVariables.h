@@ -22,13 +22,6 @@
 #define CENTIMETER_50 770
 #define CENTIMETER_DEFAULT 1000
 
-// How many samples to acquire for filter at each PID run.
-#define FILTER_AVERAGE_SAMPLES 50
-#define KP_GAIN_DEBUGGING 60
-#define KI_GAIN_DEBUGGING 9
-#define KD_GAIN_DEBUGGING 60
-#define SETPOINT_DEBUGGING 20
-
 extern xSemaphoreHandle sem;
 
 /* PID / UART */

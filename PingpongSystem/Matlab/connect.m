@@ -1,20 +1,5 @@
-function [] = startPID(port, dT, T, setpoint, Kp, Ki, Kd)
+function [] = connect(port, dT, T, setpoint, Kp, Ki, Kd)
 
-
-%AR
-
-% dT,(seconds) sampletime for graphing/Arduino UART polling = 0.3
-% T,(seconds) Total time for test to run
-% setpoint,(cm), 10,20,30,40 or 50
-% Kp,K-constant to send ex '1.1'
-% Ki,I-constant to send ex '2.0'
-% Kd,D-constant to send ex '15.0'
-
-
-%startPID('COM4', 0.3, 30, 10, 1.1, 2.2, 16.0)
-
-
-%Make sure the same divider is set for Arduino
 divider = 10;
 
 arduino = serial(port, 'BaudRate', 115200,'databits', 8);
@@ -43,8 +28,6 @@ Kp = Kp*divider;
 Ki = Ki*divider;
 Kd = Kd*divider;
 
-pause(0.5);
-fwrite(arduino, 1, 'int8');
 pause(0.5);
 fwrite(arduino, Kp, 'int8');
 pause(0.5);
