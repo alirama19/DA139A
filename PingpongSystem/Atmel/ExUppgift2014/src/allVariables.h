@@ -33,9 +33,9 @@ extern xSemaphoreHandle sem;
 
 /* PID / UART */
 // Variables bellow are used for both PID calculation and storing values sent from Matlab
-extern double kP;
-extern double kI;
-extern double kD;
+extern double pValue;
+extern double iValue;
+extern double dValue;
 extern int32_t setPoint;
 
 // dt �r 50ms eller 0.05s

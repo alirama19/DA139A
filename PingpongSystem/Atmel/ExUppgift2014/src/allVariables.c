@@ -12,9 +12,9 @@ xSemaphoreHandle sem = NULL;
 
 /* PID */
 // Processed values for the PID regulator, p_temp / divider ..
-double kP = 0;
-double kI = 0;
-double kD = 0;
+double pValue = 0;
+double iValue = 0;
+double dValue = 0;
 int32_t setPoint = 0;
 
 uint8_t isMatlab = 1; // 1 for matlab, 0 for terminal debugging

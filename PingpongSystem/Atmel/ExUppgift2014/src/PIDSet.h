@@ -9,11 +9,11 @@
 #ifndef PIDREGULATION_H_
 #define PIDREGULATION_H_
 
-void PIDReglering(void);
+//void PIDReglering(void);
 //Defines for creation of PIDRegulationTask
-#define TASK_PIDRegulation_STACK_SIZE (2048/sizeof(portSTACK_TYPE))
-#define TASK_PIDRegulation_STACK_PRIORITY (2)
+//#define TASK_PIDRegulation_STACK_SIZE (2048/sizeof(portSTACK_TYPE))
+//#define TASK_PIDRegulation_STACK_PRIORITY (2)
 
-void PIDTask (void *pvParameters);
+//void PIDTask (void *pvParameters);
 
 #endif /* PIDREGULATION_H_ */

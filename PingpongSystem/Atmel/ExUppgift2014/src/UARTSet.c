@@ -98,9 +98,9 @@ void getPIDValues()
 	}
 
 	//Convert to correct data types
-	kP = (double) ((double) kP_Gain_temp / divider);
-	kI = (double) (kI_Gain_temp / divider);
-	kD = (double) (kD_Gain_temp / divider);
+	pValue = (double) ((double) kP_Gain_temp / divider);
+	iValue = (double) (kI_Gain_temp / divider);
+	dValue = (double) (kD_Gain_temp / divider);
 
 	switch(setPointCm){
 		case 10 :

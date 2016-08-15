@@ -4,8 +4,7 @@
 #include "config/conf_clock.h "
 #include "allVariables.h"
 #include "ADCSet.h"
-#include "PIDSet.h"
-#include "PWMSet.h"
+#include "ReglStyr.h"
 #include "UARTSet.h"
 
 

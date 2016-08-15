@@ -14,9 +14,7 @@ src\ASF\thirdparty\freertos\freertos-7.3.0\source\FreeRTOS_CLI.c
 
 src\allVariables.c
 
-src\PIDSet.c
-
-src\PWMSet.c
+src\ReglStyr.c
 
 src\UARTSet.c
 

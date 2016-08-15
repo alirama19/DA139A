@@ -7,7 +7,7 @@
 #include <asf.h>
 #include "ADCSet.h"
 #include "allVariables.h"
-#include "PWMSet.h"
+#include "ReglStyr.h"
 
 /* Setup Function for ADC */
 void ADCSetup()
