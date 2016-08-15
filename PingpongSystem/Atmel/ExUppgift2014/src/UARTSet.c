@@ -83,7 +83,7 @@ void getPIDValues()
 	iValue = (double) (kI_Gain_temp / divider);
 	dValue = (double) (kD_Gain_temp / divider);
 
-
+// lägg till en if-sats istället? 
 
 	//switch(setPointCm){
 		//case 10 :
